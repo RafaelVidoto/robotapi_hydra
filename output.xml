@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.3 on win32)" generated="20230524 17:30:07.955" rpa="false" schemaversion="3">
+<suite id="s1" name="Api Testing Usuarios" source="c:\Users\rafael.vidoto\Documents\Git\ApiTesting\tests\api_testing_usuarios.robot">
+<test id="s1-t1" name="Cenário 01: Autenticar" line="7">
+<kw name="Dado que seja realizado a devida autenticação no servidor" library="api_testing_usuarios">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>postRequest</arg>
+<arg>${ndsite3}</arg>
+<arg>verify=true</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230524 17:30:08.206" level="INFO">Creating Session using : alias=postRequest, url=https://ndsite3.hydrasystems.com.br:2780, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20230524 17:30:08.200" endtime="20230524 17:30:08.206"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>postRequest</arg>
+<arg>${activate_endpoint}</arg>
+<arg>${activate_body}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20230524 17:30:08.542" level="INFO">POST Request : url=https://ndsite3.hydrasystems.com.br:2780/pt/activate 
+ path_url=/pt/activate 
+ headers={'User-Agent': 'python-requests/2.30.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '627'} 
+ body={"serial_number": POSTMAN,"security_key": 90a2c434-b1aa-423a-9565-419046c59ce8,"app_name": "cabinet","version": "3.22.9.39","status": {"printer_status": "","bv_status": "","main_door_status": 0,"belly_door_status": 0,"drop_door_status": 0,"cashbox_door_status": 0,"logic_door_status": 0,"battery_1_low": 0,"battery_2_low": 1,"create_timestamp": 1663871424235},"notification_requests": ["com.pilotgames.common.messages.nd.TerminalDisable", "com.pilotgames.common.messages.nd.RequestSoftwareCommand", "com.pilotgames.common.messages.nd.SoftwareCommand", "com.pilotgames.common.messages.nd.GenericNotification"], "checksum": null} 
+ </msg>
+<msg timestamp="20230524 17:30:08.542" level="INFO">POST Response : url=https://ndsite3.hydrasystems.com.br:2780/pt/activate 
+ status=200, reason=OK 
+ headers={'Date': 'Wed, 24 May 2023 20:30:07 GMT', 'Content-Type': 'application/json;charset=utf-8', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'origin, content-type, accept, authorization', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS, HEAD', 'Access-Control-Max-Age': '1209600', 'Content-Length': '53', 'Server': 'Jetty(9.4.28.v20200408)'} 
+ body={"status":"error","message":"Device is not enrolled"} 
+ </msg>
+<msg timestamp="20230524 17:30:08.542" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230524 17:30:08.206" endtime="20230524 17:30:08.542"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230524 17:30:08.542" level="INFO">{'status': 'error', 'message': 'Device is not enrolled'}</msg>
+<status status="PASS" starttime="20230524 17:30:08.542" endtime="20230524 17:30:08.542"/>
+</kw>
+<status status="PASS" starttime="20230524 17:30:08.200" endtime="20230524 17:30:08.542"/>
+</kw>
+<status status="PASS" starttime="20230524 17:30:08.200" endtime="20230524 17:30:08.550"/>
+</test>
+<status status="PASS" starttime="20230524 17:30:07.971" endtime="20230524 17:30:08.550"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Api Testing Usuarios">Api Testing Usuarios</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

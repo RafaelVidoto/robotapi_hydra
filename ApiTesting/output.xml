@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.3 on win32)" generated="20230523 15:57:32.941" rpa="false" schemaversion="3">
+<suite id="s1" name="Tests" source="C:\Users\rafael.vidoto\Documents\Git\ApiTesting\tests">
+<suite id="s1-s1" name="Api Testing Usuarios" source="C:\Users\rafael.vidoto\Documents\Git\ApiTesting\tests\api_testing_usuarios.robot">
+<test id="s1-s1-t1" name="Cenário 01: Autenticar" line="7">
+<kw name="Dado que seja realizado a devida autenticação no servidor" library="api_testing_usuarios">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>postRequest</arg>
+<arg>${ndsite3}</arg>
+<arg>verify=true</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230523 15:57:33.080" level="INFO">Creating Session using : alias=postRequest, url=https://ndsite3.hydrasystems.com.br:2780, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20230523 15:57:33.080" endtime="20230523 15:57:33.080"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>postRequest</arg>
+<arg>${activate_endpoint}</arg>
+<arg>${activate_body}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20230523 15:57:33.118" level="INFO">POST Request : url=https://ndsite3.hydrasystems.com.br:2780/pt/activate 
+ path_url=/pt/activate 
+ headers={'User-Agent': 'python-requests/2.30.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '627'} 
+ body={"serial_number": POSTMAN,"security_key": cd194475-d098-43ba-aeaa-b86cc8bc8b2d,"app_name": "cabinet","version": "3.22.9.39","status": {"printer_status": "","bv_status": "","main_door_status": 0,"belly_door_status": 0,"drop_door_status": 0,"cashbox_door_status": 0,"logic_door_status": 0,"battery_1_low": 0,"battery_2_low": 1,"create_timestamp": 1663871424235},"notification_requests": ["com.pilotgames.common.messages.nd.TerminalDisable", "com.pilotgames.common.messages.nd.RequestSoftwareCommand", "com.pilotgames.common.messages.nd.SoftwareCommand", "com.pilotgames.common.messages.nd.GenericNotification"], "checksum": null} 
+ </msg>
+<msg timestamp="20230523 15:57:33.119" level="INFO">POST Response : url=https://ndsite3.hydrasystems.com.br:2780/pt/activate 
+ status=200, reason=OK 
+ headers={'Date': 'Tue, 23 May 2023 18:57:32 GMT', 'Content-Type': 'application/json;charset=utf-8', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'origin, content-type, accept, authorization', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS, HEAD', 'Access-Control-Max-Age': '1209600', 'Content-Length': '53', 'Server': 'Jetty(9.4.28.v20200408)'} 
+ body={"status":"error","message":"Device is not enrolled"} 
+ </msg>
+<msg timestamp="20230523 15:57:33.119" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230523 15:57:33.080" endtime="20230523 15:57:33.119"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${token}</var>
+<arg>${response.json()["answer"][0]}</arg>
+<arg>session_token</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20230523 15:57:33.119" level="FAIL">Resolving variable '${response.json()["answer"][0]}' failed: KeyError: 'answer'</msg>
+<status status="FAIL" starttime="20230523 15:57:33.119" endtime="20230523 15:57:33.119"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${token}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" starttime="20230523 15:57:33.120" endtime="20230523 15:57:33.120"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${token}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20230523 15:57:33.120" endtime="20230523 15:57:33.120"/>
+</kw>
+<status status="FAIL" starttime="20230523 15:57:33.080" endtime="20230523 15:57:33.120"/>
+</kw>
+<status status="FAIL" starttime="20230523 15:57:33.079" endtime="20230523 15:57:33.120">Resolving variable '${response.json()["answer"][0]}' failed: KeyError: 'answer'</status>
+</test>
+<test id="s1-s1-t2" name="Cenário 02: Consultar Jogos instalados no terminal" line="11">
+<kw name="Dado que seja iniciado uma sessao no servidor" library="api_testing_usuarios">
+<kw name="Dado que seja realizado a devida autenticação no servidor" library="api_testing_usuarios">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>postRequest</arg>
+<arg>${ndsite3}</arg>
+<arg>verify=true</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230523 15:57:33.123" level="INFO">Creating Session using : alias=postRequest, url=https://ndsite3.hydrasystems.com.br:2780, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20230523 15:57:33.122" endtime="20230523 15:57:33.123"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>postRequest</arg>
+<arg>${activate_endpoint}</arg>
+<arg>${activate_body}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20230523 15:57:33.153" level="INFO">POST Request : url=https://ndsite3.hydrasystems.com.br:2780/pt/activate 
+ path_url=/pt/activate 
+ headers={'User-Agent': 'python-requests/2.30.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '627'} 
+ body={"serial_number": POSTMAN,"security_key": cd194475-d098-43ba-aeaa-b86cc8bc8b2d,"app_name": "cabinet","version": "3.22.9.39","status": {"printer_status": "","bv_status": "","main_door_status": 0,"belly_door_status": 0,"drop_door_status": 0,"cashbox_door_status": 0,"logic_door_status": 0,"battery_1_low": 0,"battery_2_low": 1,"create_timestamp": 1663871424235},"notification_requests": ["com.pilotgames.common.messages.nd.TerminalDisable", "com.pilotgames.common.messages.nd.RequestSoftwareCommand", "com.pilotgames.common.messages.nd.SoftwareCommand", "com.pilotgames.common.messages.nd.GenericNotification"], "checksum": null} 
+ </msg>
+<msg timestamp="20230523 15:57:33.153" level="INFO">POST Response : url=https://ndsite3.hydrasystems.com.br:2780/pt/activate 
+ status=200, reason=OK 
+ headers={'Date': 'Tue, 23 May 2023 18:57:32 GMT', 'Content-Type': 'application/json;charset=utf-8', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'origin, content-type, accept, authorization', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS, HEAD', 'Access-Control-Max-Age': '1209600', 'Content-Length': '53', 'Server': 'Jetty(9.4.28.v20200408)'} 
+ body={"status":"error","message":"Device is not enrolled"} 
+ </msg>
+<msg timestamp="20230523 15:57:33.153" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230523 15:57:33.123" endtime="20230523 15:57:33.153"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${token}</var>
+<arg>${response.json()["answer"][0]}</arg>
+<arg>session_token</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20230523 15:57:33.154" level="FAIL">Resolving variable '${response.json()["answer"][0]}' failed: KeyError: 'answer'</msg>
+<status status="FAIL" starttime="20230523 15:57:33.154" endtime="20230523 15:57:33.154"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${token}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" starttime="20230523 15:57:33.154" endtime="20230523 15:57:33.154"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${token}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20230523 15:57:33.154" endtime="20230523 15:57:33.154"/>
+</kw>
+<status status="FAIL" starttime="20230523 15:57:33.122" endtime="20230523 15:57:33.154"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>hydra</arg>
+<arg>https://ndsite3.hydrasystems.com.br:2780/pt/lobby_information/${token}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="NOT RUN" starttime="20230523 15:57:33.154" endtime="20230523 15:57:33.154"/>
+</kw>
+<status status="FAIL" starttime="20230523 15:57:33.122" endtime="20230523 15:57:33.154"/>
+</kw>
+<kw name="Quando o status code retornado for 200" library="api_testing_usuarios">
+<status status="NOT RUN" starttime="20230523 15:57:33.155" endtime="20230523 15:57:33.155"/>
+</kw>
+<kw name="Então o jogo Break the Bank deve ocupar a posição 1" library="api_testing_usuarios">
+<status status="NOT RUN" starttime="20230523 15:57:33.155" endtime="20230523 15:57:33.155"/>
+</kw>
+<kw name="E o jogo Let's Go Wild deve ocupar a posição 15" library="api_testing_usuarios">
+<status status="NOT RUN" starttime="20230523 15:57:33.155" endtime="20230523 15:57:33.155"/>
+</kw>
+<status status="FAIL" starttime="20230523 15:57:33.121" endtime="20230523 15:57:33.156">Resolving variable '${response.json()["answer"][0]}' failed: KeyError: 'answer'</status>
+</test>
+<status status="FAIL" starttime="20230523 15:57:32.962" endtime="20230523 15:57:33.157"/>
+</suite>
+<status status="FAIL" starttime="20230523 15:57:32.943" endtime="20230523 15:57:33.158"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="2" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="0" fail="2" skip="0" id="s1-s1" name="Api Testing Usuarios">Tests.Api Testing Usuarios</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

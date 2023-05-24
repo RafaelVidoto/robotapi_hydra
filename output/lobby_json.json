@@ -1,0 +1,78 @@
+{
+    "status": "ok",
+    "current_time": "2023-05-23T01:14:35.226643Z",
+    "version": "1.0",
+    "answer": [
+        {
+            "lobby_ordering": [
+                {
+                    "title": "Break the Bank",
+                    "order": 1
+                },
+                {
+                    "title": "Blazing Devil",
+                    "order": 2
+                },
+                {
+                    "title": "Wild Fire Dragon",
+                    "order": 3
+                },
+                {
+                    "title": "Van Gogh Dough",
+                    "order": 4
+                },
+                {
+                    "title": "Goin' to Mexico 2",
+                    "order": 5
+                },
+                {
+                    "title": "Wild Walleye 2",
+                    "order": 6
+                },
+                {
+                    "title": "Finnegan's Gold",
+                    "order": 7
+                },
+                {
+                    "title": "Buffalo Stars",
+                    "order": 8
+                },
+                {
+                    "title": "Martian Invasion",
+                    "order": 9
+                },
+                {
+                    "title": "Nile Treasure",
+                    "order": 10
+                },
+                {
+                    "title": "Lucky Lions Fortune",
+                    "order": 11
+                },
+                {
+                    "title": "Winter Wolves",
+                    "order": 12
+                },
+                {
+                    "title": "Bounty Hunter",
+                    "order": 13
+                },
+                {
+                    "title": "Bookoo Bucks",
+                    "order": 14
+                },
+                {
+                    "title": "Let's Go Wild",
+                    "order": 15
+                }
+            ],
+            "business_day": {
+                "timezone": "America/Chicago",
+                "start_time_seconds": 14400,
+                "start_time": 1684814400000,
+                "finish_time": 1684900800000,
+                "date": "2023-05-22"
+            }
+        }
+    ]
+}
